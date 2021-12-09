@@ -8,11 +8,12 @@ def send_notification(ad):
     print(ad["ad"])
     print(ad["contact"])
 
-    msg_title = "Nowe ogłoszenie!"
+    msg = "----------------------" + "\n"
+    msg += ad["ad"] + "\n"
+    msg += ad["contact"] + "\n"
+    msg += "----------------------"
 
-    execute_docker(msg_title)
-    execute_docker(ad["ad"])
-    execute_docker(ad["contact"])
+    execute_docker(msg)
 
 
 def execute_docker(msg):
