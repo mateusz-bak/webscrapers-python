@@ -1,8 +1,8 @@
 from bs4 import BeautifulSoup
 import json
 import urllib.request
+import os
 import datetime
-import subprocess
 
 
 def send_notification(ad):
@@ -15,8 +15,7 @@ def send_notification(ad):
 
 def execute_docker(msg):
     cmd = f'docker run --rm -ti -v /home/mateusz/matrix-commander/data:/data:z matrix-commander  -m "{msg}"'
-    output = subprocess.check_output(cmd, shell=True)
-    print(output)
+    os.system(cmd)
 
 
 def download_website():
