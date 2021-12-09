@@ -32,8 +32,11 @@ with open('webpage.html', 'r') as html_file:
         ad_dict = {"ad": ad_parts[0].text, "contact": ad_parts[1].text}
         new_ads.append(ad_dict)
 
-    with open('ads.json', 'r') as fin:
-        old_ads = json.load(fin)
+    try:
+        with open('ads.json', 'r') as fin:
+            old_ads = json.load(fin)
+    except IOError:
+        old_ads = []
 
     new_ads.reverse()
     with open('ads.json', 'w') as fout:
