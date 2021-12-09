@@ -3,6 +3,7 @@ import json
 import urllib.request
 import os
 import datetime
+import time
 
 
 def send_notification(ad):
@@ -14,7 +15,7 @@ def send_notification(ad):
 
 
 def execute_docker(msg):
-    cmd = f'docker run --rm -ti -v /home/mateusz/matrix-commander/data:/data:z matrix-commander  -m "{msg}"'
+    cmd = f'docker run --rm -d -v /home/mateusz/matrix-commander/data:/data:z matrix-commander  -m "{msg}"'
     os.system(cmd)
 
 
@@ -52,5 +53,6 @@ with open('webpage.html', 'r') as html_file:
     for new_ad in new_ads:
         if new_ad not in old_ads:
             send_notification(new_ad)
+            time.sleep(10)
 
 
