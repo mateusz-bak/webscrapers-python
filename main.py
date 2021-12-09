@@ -6,9 +6,6 @@ import datetime
 
 
 def send_notification(ad):
-    print(ad["ad"])
-    print(ad["contact"])
-
     msg = ad["ad"] + "\n"
     msg += ad["contact"] + "\n\n"
     msg += datetime.datetime.now().strftime('%d-%m-%Y %H:%M') + "\n\n" + "____________"
