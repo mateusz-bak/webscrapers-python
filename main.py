@@ -7,7 +7,16 @@ import os
 def send_notification(ad):
     print(ad["ad"])
     print(ad["contact"])
-    cmd = 'docker run --rm -ti -v /home/mateusz/matrix-commander/data:/data:z matrix-commander  -m "test"'
+
+    msg_title = "Nowe ogłoszenie!"
+
+    execute_docker(msg_title)
+    execute_docker(ad["ad"])
+    execute_docker(ad["contact"])
+
+
+def execute_docker(msg):
+    cmd = f'docker run --rm -ti -v /home/mateusz/matrix-commander/data:/data:z matrix-commander  -m "{msg}"'
     os.system(cmd)
 
 
