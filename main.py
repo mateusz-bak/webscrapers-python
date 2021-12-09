@@ -11,7 +11,7 @@ def send_notification(ad):
 
     msg = ad["ad"] + "\n"
     msg += ad["contact"] + "\n\n"
-    msg += datetime.datetime.now().strftime('%d-%m-%Y %H:%M') + "\n\n"
+    msg += datetime.datetime.now().strftime('%d-%m-%Y %H:%M') + "\n\n" + "____________"
 
     execute_docker(msg)
 
