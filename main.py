@@ -2,16 +2,16 @@ from bs4 import BeautifulSoup
 import json
 import urllib.request
 import os
+import datetime
 
 
 def send_notification(ad):
     print(ad["ad"])
     print(ad["contact"])
 
-    msg = "----------------------" + "\n"
-    msg += ad["ad"] + "\n"
-    msg += ad["contact"] + "\n"
-    msg += "----------------------"
+    msg = ad["ad"] + "\n"
+    msg += ad["contact"] + "\n\n"
+    msg += datetime.datetime.now().strftime('%d-%m-%Y %H:%M') + "\n\n"
 
     execute_docker(msg)
 
